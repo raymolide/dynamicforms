@@ -1,4 +1,4 @@
-export const forms:Form[]=[
+export const formsMock:Form[]=[
     {
         "id": 1,
         "name": "full_name",
@@ -96,5 +96,19 @@ export const forms:Form[]=[
         "parent_form": 1,
         "created_by": 1,
         "updated_by": 1
-    }
+    },
+    {
+        "id": 9,
+        "name": "Submit",
+        "label": "Enviar",
+        "index": 1,
+        "type": "submit",
+        "required": false,
+        "uuid": "d488da20-c54f-46ec-842e-e1fa8e2fd8fb",
+        "created_at": "2024-03-06T14:22:54.240688Z",
+        "updated_at": "2024-03-06T14:22:54.240718Z",
+        "parent_form": 1,
+        "created_by": 1,
+        "updated_by": 1
+    },
 ];  

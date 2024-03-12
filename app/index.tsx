@@ -4,17 +4,22 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, ImageBackground, StyleSheet } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { FormService } from '../services/formService';
+import { formsMock } from './mock';
+import { Button } from '../components/button';
 
 export default function App() {
-    const [forms, setForms] = useState<Form[]>([])
+    const [forms, setForms] = useState<Form[]>(formsMock)
     const formService = new FormService('url')
 
-    useEffect(() => { 
+    useEffect(() => {
         (async () => {
             var data = await formService.getById('')
-            setForms(forms)
+            if (data) {
+                setForms(forms)
+            }
         })()
     }, []);
+
 
     const renderFormFields = () => {
         return forms.map((field) => {
@@ -47,8 +52,12 @@ export default function App() {
                         </View>
                     );
 
-
-
+                    case 'submit':
+                        return (
+                            <View className='w-full ' >
+                                 <Button text="Submit" className='bg-blue-300' onPress={()=>{}} />
+                            </View>
+                        );
                 default:
                     return null;
             }
