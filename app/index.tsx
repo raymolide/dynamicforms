@@ -1,7 +1,7 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, TextInput, ImageBackground, StyleSheet, ScrollView } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { FormService } from '../services/formService';
 import { formsMock } from './mock';
@@ -52,12 +52,12 @@ export default function App() {
                         </View>
                     );
 
-                    case 'submit':
-                        return (
-                            <View className='w-full ' >
-                                 <Button text="Submit" className='bg-blue-300' onPress={()=>{}} />
-                            </View>
-                        );
+                case 'submit':
+                    return (
+                        <View className='w-full ' >
+                            <Button text="Submit" className='bg-blue-300' onPress={() => { }} />
+                        </View>
+                    );
                 default:
                     return null;
             }
@@ -65,13 +65,15 @@ export default function App() {
     };
     return (
         <ImageBackground style={style.container} source={require('../assets/bg.png')}   >
-            <View className='flex w-full h-full items-center justify-start'>
-                <StatusBar />
-                <Text className='text-xl font-bold shadow' >Inquérito de saúde</Text>
-                <View className='flex p-5 w-full h-full items-center justify-center'>
-                    {renderFormFields()}
+            <ScrollView>
+                <View className='flex w-full h-full items-center justify-start'>
+                    <StatusBar />
+                    <Text className='text-xl font-bold shadow' >Inquérito de saúde</Text>
+                    <View className='flex p-5 w-full h-full items-center justify-center'>
+                        {renderFormFields()}
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </ImageBackground>
     );
 }
